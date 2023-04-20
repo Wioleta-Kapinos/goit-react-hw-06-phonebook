@@ -1,9 +1,15 @@
 import { nanoid } from "nanoid";
-import PropTypes from "prop-types"; 
+import { useDispatch } from "react-redux";
+import { filterContact } from "redux/actions";
 import css from "./Filter.module.css";
 
-export const Filter = ({value, onChange}) => {
+export const Filter = () => {
     const filterInputId = nanoid();
+    const dispatch = useDispatch();
+    const handleChangeFilter = event => {
+        const value = event.target.value;
+        dispatch(filterContact(value));
+    }
     return (
         <div className={css.filter}>
             <label 
@@ -15,14 +21,8 @@ export const Filter = ({value, onChange}) => {
                     className={css.filterInput}
                     type="search"
                     name={filterInputId}
-                    value={value}
-                    onChange={onChange}
+                    onChange={handleChangeFilter}
                 ></input>
         </div>
     )
-}
-
-Filter.propTypes = {
-    value: PropTypes.string,
-    onChange: PropTypes.func,
 }
