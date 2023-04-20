@@ -13,6 +13,7 @@ export const contactsReducer = createReducer(initialStateContacts, {
 )
 
 const initialStateFilter = "";
+
 export const filterReducer = createReducer(initialStateFilter, {
     [filterContact] : (state, action) => (state = action.payload),
 })

@@ -4,13 +4,16 @@ import { getContacts, getFilterValue } from "redux/selectors";
 import { deleteContact } from "redux/actions";
 
 export const ContactList = () => {
+
     const contacts = useSelector(getContacts);
     const filter = useSelector(getFilterValue);
     const filteredContactsBook = contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()));
     const dispatch = useDispatch();
+
     const deleteContactBook = contact => {
         dispatch(deleteContact(contact))
     }
+    
     return (
         <div>
             <ul className={css.contactList}>

@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { getContacts } from "redux/selectors";
 
 export const App = () =>{
+  
   const contacts = useSelector(getContacts);
 
   useEffect(() => {

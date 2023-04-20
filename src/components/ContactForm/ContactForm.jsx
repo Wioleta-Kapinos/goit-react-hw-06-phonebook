@@ -5,6 +5,7 @@ import { useSelector, useDispatch} from "react-redux";
 import css from "./ContactForm.module.css";
 
 export const ContactForm = () => {
+
     const nameInputId = nanoid();
     const numberInputId = nanoid();
     const contacts = useSelector(getContacts);
@@ -25,6 +26,7 @@ export const ContactForm = () => {
         dispatch(addContact(userBook));
         form.reset();
         }
+        
     return (
         <div className={css.contactForm}>
             <form onSubmit={handleSubmit} className={css.form}>
